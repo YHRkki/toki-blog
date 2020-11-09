@@ -74,6 +74,12 @@ git checkout some-branch-name file-name.js，检出指定分支的指定文件
 
 git checkout {{some-commit-hash}} file-name.js，检出指定提交的指定文件
 
+git reset --soft HEAD~1 撤回最近一次的commit(撤销commit，不撤销git add)
+
+git reset --mixed HEAD~1 撤回最近一次的commit(撤销commit，撤销git add)
+ 
+git reset --hard HEAD~1 撤回最近一次的commit(撤销commit，撤销git add,还原改动的代码)
+
 12. 其它
 
 > Git管理大项目一段时间后会比较慢，可以使用git gc命令清理一下Git不管理空目录，如果本地有空目录，则始终不会提交到仓库中Git会根据文件的相似性自动识别重命令名操作，底层其实也是先delete后add可在.git同级目录添加.gitignore文件，文件中可写入忽略文件信息，查看状态和提交时均会自动忽略1.7版好像支持了像svn那样只检出部分目录的功能，详细请移步官网文档，另附Git稀疏检出教程一例推荐官方书籍：Pro Git官方手册地址请戳我，注：git help 'command'显示的就是官方手册Manual Page.还有一些其它功能，比如：rebase, rm, reset, remote, blame, cherry-pick, mergetool, difftool等本教程还没涉及，以后会逐步更新
