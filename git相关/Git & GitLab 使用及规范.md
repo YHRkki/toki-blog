@@ -2,7 +2,7 @@
 #### Git安装配置及基本使用
 ##### 从官网下载安装包，手动完成安装。
 
-##### 打开Git Bash命令行工具，执行命令ssh-keygen -t rsa -C Email-Addresss生成一个密钥对。
+##### 打开Git Bash命令行工具，执行命令ssh-keygen -t rsa -C 邮箱地址 生成一个密钥对。
 
 ##### 登录到GitLab，点击右上角你的用户头像，点击Edit Profile settings，点击SSH Keys，点击Add SSH Key，填写Title栏，复制用户目录下.ssh/id_rsa.pub文件的内容到Key，点击Add Key。
 
