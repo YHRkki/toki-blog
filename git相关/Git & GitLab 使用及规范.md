@@ -2,7 +2,7 @@
 #### Git安装配置及基本使用
 ##### 从官网下载安装包，手动完成安装。
 
-##### 打开Git Bash命令行工具，执行命令ssh-keygen -t rsa -C Email-Addresss生成一个密钥对。
+##### 打开Git Bash命令行工具，执行命令ssh-keygen -t rsa -C 邮箱地址 生成一个密钥对。
 
 ##### 登录到GitLab，点击右上角你的用户头像，点击Edit Profile settings，点击SSH Keys，点击Add SSH Key，填写Title栏，复制用户目录下.ssh/id_rsa.pub文件的内容到Key，点击Add Key。
 
@@ -31,9 +31,6 @@ git commit -m "注释"，把暂存区内容提交到本地仓库
 git push -u origin master，把本地仓库的提交推送到远程仓库
 
 git log，查看提交日志
-
-##### 模拟远程更新
-登录到GitLab，点击Files标签，点击README.md文件，点击Edit按钮修改文件内容，添加新行："* 远程修改文件记录"，可以点击Preview预览，也可以填写注释后直接保存。
 
 ##### 执行命令：
 
