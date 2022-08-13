@@ -17,8 +17,8 @@
 
 ####  Mobx 和 Redux 的不同？
 
-> 这两个库都是用来管理 JavaScript 应用的状态。它们并不一定要跟 React 绑定在一起，它们也可以在 AngularJs 和 VueJs 这些其他库里使用。但它们与[ React 的理念](https://www.robinwieruch.de/reasons-why-i-moved-from-angular-to-react/)结合得非常好。
->
-> 你的 Redux state 是不可变的，你应该总是返回一个新的 state 而不是修改原 state。你不应该执行 state 的修改或依据对象引用的更改。
->
-> Mobx 则是受到面向对象编程和响应式编程的影响。它将 state 包装成可观察的对象，因此你的 state 就有了 Observable 的所有能力。state 数据可以只有普通的 setter 和 getter，但 observable 让我们能在数据改变的时候得到更新的值。
+>- 这两个库都是用来管理 JavaScript 应用的状态。它们并不一定要跟 React 绑定在一起，它们也可以在 AngularJs 和 VueJs 这些其他库里使用。但它们与[ React 的理念](https://www.robinwieruch.de/reasons-why-i-moved-from-angular-to-react/)结合得非常好。
+>- Redux核心是不可变对象，在Reducer中的操作都要比较小心，注意不能修改到state的属性，返回时必须是一个全新的对象；而Mobx采用不存在这个问题，操作比较随意；
+>- Redux中写法固定，模板代码较多，Mobx中写法比较随意，但是因为写法随意的原因，如果没有规范性的话，维护性则不会像Redux那么高；
+>-  Mobx 则是受到面向对象编程和响应式编程的影响。它将 state 包装成可观察的对象，因此你的 state 就有了 Observable 的所有能力。state 数据可以只有普通的 setter 和 getter，但 observable 让我们能在数据改变的时候得到更新的值。
+>- Redux每一次的dispatch都会从根reducer到子reducer嵌套递归的执行，所以效率相对较低；而Mobx的内部使用的是依赖收集，所以不会有这个问题，执行的代码较少，性能相对更高；

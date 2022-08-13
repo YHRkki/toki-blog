@@ -1,3 +1,14 @@
+**flex-wrap：决定换行规则**
+```css
+.item {flex-wrap: nowrap | wrap | wrap-reverse;}
+```
+
+
+**flex-direction：决定主轴的方向（即子 item 的排列方法）**
+```css
+.item {flex-direction: row | row-reverse | column | column-reverse;}
+```
+
 **flex: 1**
 [原文地址](https://segmentfault.com/q/1010000004080910/a-1020000004121373)
 
@@ -43,14 +54,14 @@
 当 flex 取值为一个长度或百分比，则视为 flex-basis 值，flex-grow 取 1，flex-shrink 取 1，有如下等同情况（注意 0% 是一个百分比而不是一个非负数字）：
 
 ```css
-.item-1 {flex: 0%;}
-.item-1 {
+.item {flex: 0%;}
+.item {
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: 0%;
 }
-.item-2 {flex: 24px;}
-.item-1 {
+.item {flex: 24px;}
+.item {
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: 24px;
