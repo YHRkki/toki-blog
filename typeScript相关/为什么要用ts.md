@@ -1,0 +1,18 @@
+## 什么是TypeScript？
+> 简而言之，TypeScript是JavaScript的超集，具有可选的类型并可以编译为纯JavaScript。
+#### 那么，向JavaScript添加静态类型的原因是什么？
+- 您可以避免经典的错误 'undefined' is not a function.
+- 在不严重破坏代码的情况下，重构代码更容易。
+- 使大型、复杂的应用程序源码更易阅读。
+> 因此，JavaScript无法合并类型以及编译时缺乏错误检查，使它不适合作为企业和大型代码库中服务器端代码。
+### 选择TypeScript而非JavaScript的3个原因
+#### TypeScript更可靠
+与JavaScript相比，TypeScript代码更可靠、更容易重构。这使开发人员可以更轻松地避免错误并进行重写。
+
+类型的定义和编译器的引入，可使你避免掉代码中的大多数愚蠢错误。
+
+#### TypeScript更清晰
+显式类型使我们代码可读性更高，所以我们的注意力将会更集中在我们的系统究竟是如何构建的，以及系统的不同部分如何相互作用。在大型系统中，能够在记住上下文的同时抽象出系统的其余部分是很重要的。类型的定义使我们能够做到这一点。
+
+#### TypeScript和JavaScript实际上是可以互换的，何乐而不为呢？
+由于JavaScript是TypeScript的子集，因此您可以在TypeScript代码中使用您想要的所有JavaScript库和代码。
