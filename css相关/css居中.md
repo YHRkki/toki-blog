@@ -81,4 +81,12 @@
     bottom: 0;
 }
 ```
-
+```css
+.wrapper {
+    display: grid;
+}
+.wrapper > p {
+    justify-self: center;
+    align-self: center;
+}
+```
