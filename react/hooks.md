@@ -181,6 +181,9 @@ export default ()=>{
 ```
 
 ## useRef
+- 返回一个可变的 ref 对象，该对象只有个 current 属性，初始值为传入的参数( initialValue )。
+- 返回的 ref 对象在组件的整个生命周期内保持不变
+- 当更新 current 值时并不会 re-render ，这是与 useState 不同的地方
 获取 DOM 元素
 ```js
 const DemoUseRef = ()=>{
@@ -197,12 +200,83 @@ const DemoUseRef = ()=>{
 }
 ```
 保存状态: 可以利用 useRef 返回的 ref 对象来保存状态，只要当前组件不被销毁，那么状态就会一直存在。
-> 需要注意的是 useRef 保存的状态变更不会引起组件重新渲染，可以利用这个特性计算组件渲染次数等功能
 ```js
 const status = useRef(false)
 /* 改变状态 */
 const handleChangeStatus = () => {
   status.current = true
+}
+```
+> 与`createRef`的区别：createRef 每次渲染都会返回一个新的引用，而 useRef 每次都会返回相同的引用
+
+## `forwardRef`： 将父类的ref作为参数传入函数式组件中
+```js
+//创建一个React组件，
+//这个组件将会接受到父级传递的ref属性，
+//可以将父组件创建的ref挂到子组件的某个dom元素上,
+//在父组件通过该ref就能获取到该dom元素
+const FancyButton = React.forwardRef((props, ref) => (
+  <button ref={ref} className="FancyButton">
+    {props.children}
+  </button>
+));
+// 可以直接获取到button的DOM节点
+const ref = React.useRef();
+<FancyButton ref={ref}>Click me!</FancyButton>;
+```
+
+## `useImperativeHandle`
+- 第一个参数ref: 接受 forWardRef 传递过来的 ref。
+- 第二个参数 createHandle ：处理函数，返回值作为暴露给父组件的 ref 对象。
+- 第三个参数 deps : 依赖项 deps ，依赖项更改形成新的 ref 对象。
+
+> 用于定义暴露给父组件的ref方法，用来限制子组件对外暴露的信息，只有useImperativeHandle第二个参数定义的属性跟方法才可以在父组件获取到
+
+> **为什么使用**: 因为使用forward+useRef获取子函数式组件DOM时,获取到的dom属性暴露的太多了
+```js
+function Son (props,ref) {
+  console.log(props)
+  const inputRef = useRef(null)
+  const [ inputValue , setInputValue ] = useState('')
+  useImperativeHandle(ref,()=>{
+    const handleRefs = {
+      /* 声明方法用于聚焦input框 */
+      onFocus(){
+        inputRef.current.focus()
+      },
+      /* 声明方法用于改变input的值 */
+      onChangeValue(value){
+        setInputValue(value)
+      }
+    }
+    return handleRefs
+  },[])
+  return (
+    <div>
+      <input
+        placeholder="请输入内容"
+        ref={inputRef}
+        value={inputValue}
+      />
+    </div>
+  )
+}
+
+const ForwarSon = forwardRef(Son)
+
+const Index: React.FC = (props: any) => {
+  const childRef: MutableRefObject<any> = useRef({})
+  const handerClick = () => {
+    const { onFocus, onChangeValue } = childRef.current
+    onFocus()
+    onChangeValue('let us learn React!')
+  }
+  return (
+    <div style={{ marginTop:'50px' }}>
+        <ForwarSon ref={childRef} />
+        <button onClick={handerClick} >操控子组件</button>
+    </div>
+  )
 }
 ```
 
