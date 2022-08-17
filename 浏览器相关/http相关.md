@@ -34,17 +34,17 @@
 
 **4、一次完整的HTTP事务是怎样一个过程？**
 
-　　1）域名解析
+    1）域名解析
 
-　　2） 发起TCP的3次握手
+    2） 发起TCP的3次握手
 
-　　3） 建立TCP连接后发起http请求
+    3） 建立TCP连接后发起http请求
 
-　　4） 服务器响应http请求，浏览器得到html代码
+    4） 服务器响应http请求，浏览器得到html代码
 
-　　5） 浏览器解析html代码，并请求html代码中的资源（如js、css、图片等）
+    5） 浏览器解析html代码，并请求html代码中的资源（如js、css、图片等）
 
-　　6） 浏览器对页面进行渲染呈现给用户
+    6） 浏览器对页面进行渲染呈现给用户
 
 **5、HTTPS工作原理**
 
@@ -72,3 +72,5 @@
 304状态码或许不应该认为是一种错误，而是对客户端有缓存情况下服务端的一种响应。
 
 客户端在请求一个文件的时候，发现自己缓存的文件有 Last Modified ，那么在请求中会包含 If Modified Since ，这个时间就是缓存文件的 Last Modified 。因此，如果请求中包含 If Modified Since，就说明已经有缓存在客户端。服务端只要判断这个时间和当前请求的文件的修改时间就可以确定是返回 304 还是 200 。
+
+[参考链接](https://github.com/woai3c/Front-end-articles/blob/master/http-https-http2.md)
