@@ -5,7 +5,7 @@
     <p>horizontal and vertical</p>
 </div>
 ```
-
+1. flex 布局
 ```css
 .wrapper {
     width: 300px;
@@ -19,13 +19,12 @@
     align-items: center;
 }
 ```
-
+2. 父元素 flex 布局 子元素 margin: auto
 ```css
 .wrapper {
     width: 300px;
     height: 300px;
     border: 1px solid #ccc;
-
     display: flex;
 }
 
@@ -33,7 +32,7 @@
     margin: auto;
 }
 ```
-
+3. absolute + transform
 ```css
 .wrapper {
     width: 300px;
@@ -49,7 +48,7 @@
     transform: translate(-50%, -50%);
 }
 ```
-
+4. table-cell
 ```css
 .wrapper {
     width: 300px;
@@ -61,7 +60,7 @@
     vertical-align: middle;
 }
 ```
-
+5. absolute + margin: auto
 ```css
 .wrapper {
     width: 300px;
@@ -81,6 +80,7 @@
     bottom: 0;
 }
 ```
+6. grid 布局
 ```css
 .wrapper {
     display: grid;
